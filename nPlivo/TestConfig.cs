@@ -1,10 +1,10 @@
 ﻿namespace nPlivo
 {
-    public static class TestConfig
+    public abstract class TestConfig
     {
-        public const string AuthId = @"Put your auth ID here";
-        public const string AuthToken = @"Put your auth token here";
-        public const string PhoneNumberVirtual = @"Put your virtual/plivo phone number here";
-        public const string PhoneNumberReal = @"Put your real phone number here";   
+        public const string AuthId = @"TODO";
+        public const string AuthToken = @"TODO";
+        public const string PhoneNumberVirtual = @"+TODO";
+        public const string PhoneNumberReal = @"+TODO";
     }
 }
