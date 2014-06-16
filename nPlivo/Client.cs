@@ -50,7 +50,29 @@ namespace nPlivo
             return response;
         }
 
-        public IRestResponse<MessageResponse> SendSms(string fromNumber, string toNumber, string body)
+        public IRestResponse<MessageResponse> SendSms(SmsMessage message)
+        {
+            IRestResponse<MessageResponse> resp = _request<MessageResponse>("POST", "/Message/", new Dictionary<string, string>()
+            {
+                {"src", fromNumber},
+                {"dst", toNumber},
+                {"text", body},
+                //{"url", "http://some.domain/receivestatus/"},
+                //{"method", "GET"}
+            });
+            return resp;
+            //if (resp.Data != null)
+            //{
+            //    PropertyInfo[] proplist = resp.Data.GetType().GetProperties();
+            //    foreach (PropertyInfo property in proplist)
+            //        Console.WriteLine("{0}: {1}", property.Name, property.GetValue(resp.Data, null));
+            //}
+            //else
+            //    Console.WriteLine(resp.ErrorMessage);
+        }
+    }
+
+    public IRestResponse<MessageResponse> SendSms(string fromNumber, string toNumber, string body)
         {
             IRestResponse<MessageResponse> resp = _request<MessageResponse>("POST", "/Message/", new Dictionary<string, string>()
             {
